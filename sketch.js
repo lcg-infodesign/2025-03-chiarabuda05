@@ -47,9 +47,9 @@ function draw() {
   let mapMargin = 20;
   let mapY = 130;
   let maxMapW = width - 2 * mapMargin;
-  let maxMapH = height - mapY - 40;
+  let maxMapH = height - mapY - mapMargin;
   let scale = min(maxMapW / worldImg.width, maxMapH / worldImg.height);
-  let mapW = worldImg.width * scale;
+  let mapW = worldImg.width * scale ;
   let mapH = worldImg.height * scale;
   let mapX = (width - mapW) / 2;
 
@@ -95,14 +95,14 @@ function drawVolcanoes(mapX, mapY, mapW, mapH) {
 
     if (activeType && type !== activeType) continue;
 
-    let x = map(lon, -170, 190, mapX, mapX + mapW);
+    let x = map(lon, -180, 180, mapX - (mapW * 0.05), mapX + mapW * 1.05);
     let y = map(lat, 80, -80, mapY, mapY + mapH);
     let size = map(elev, 0, 6000, 4, 12);
     let c = typeColors[type] || color(100);
 
     // verifica distanza dal mouse
     let d = dist(mouseX, mouseY, x, y);
-    if (d < size / 1.5 && d < closestDist) {
+    if (d < size / 1 && d < closestDist) {
       closestDist = d;
       selectedVolcano = { name, type, elev, x, y, size, c };
     }
@@ -119,9 +119,9 @@ function drawVolcanoes(mapX, mapY, mapW, mapH) {
 
     if (activeType && type !== activeType) continue;
 
-    let x = map(lon, -170, 190, mapX, mapX + mapW);
+    let x = map(lon, -180, 180, mapX - (mapW * 0.05), mapX + mapW * 1.05);
     let y = map(lat, 80, -80, mapY, mapY + mapH);
-    let size = map(elev, 0, 6000, 4, 12);
+    let size = map(elev, 50, 6000, 4, 12);
     let c = typeColors[type] || color(100);
 
     if (selectedVolcano && selectedVolcano.name === name) {
@@ -137,7 +137,7 @@ function drawVolcanoes(mapX, mapY, mapW, mapH) {
 
   // Tooltip del vulcano selezionato
   if (selectedVolcano) {
-    drawTooltip(selectedVolcano);
+    drawTooltip(selectedVolcano);anco
   }
 }
 
