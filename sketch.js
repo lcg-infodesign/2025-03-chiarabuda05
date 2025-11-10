@@ -121,7 +121,7 @@ function drawVolcanoes(mapX, mapY, mapW, mapH) {
 
     let x = map(lon, -180, 180, mapX, mapX + mapW);
     let y = map(lat, 90, -90, mapY, mapY + mapH);
-  let size = map(elev, 0, 6000, 4, 50);
+  let size = map(elev, 0, 9000, 4, 50);
   let c = typeColors[type] || color(100);
   // rendi i punti con opacità ~70% (70% opacity)
   let alphaVal = 255 * 0.7; // 0-255 scale
@@ -135,8 +135,8 @@ function drawVolcanoes(mapX, mapY, mapW, mapH) {
     if (hoveredVolcano && hoveredVolcano.name === name) {
       stroke(180, 30, 10);
       strokeWeight(2);
-      noFill();
-      ellipse(x, y, size + 4, size + 4);
+      fill(c);
+      ellipse(x, y, size + 8, size + 8);
       noStroke();
     }
   }
