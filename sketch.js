@@ -58,15 +58,17 @@ let mapX = (width - mapW) / 2;
 
 // TITLE & FOOTER
 function drawTitle() {
-  textAlign(RIGHT, CENTER);
-  textSize(50);
-  fill(50, 100, 150);
-  textSize(40);
-  // use the loaded Source Code Pro font and draw the title
+  // match the h1 style on the second page: brown and bold
+  push();
   textFont(fontRegular);
+  textStyle(BOLD);
+  textAlign(RIGHT, CENTER);
+  textSize(40);
+  fill(106, 63, 43); // brown (#6a3f2b ~ rgb(106,63,43))
   text("Volcanoes of the World", width - 100, 60);
-  
+  pop();
 }
+
 
 
 function drawFooter() {
