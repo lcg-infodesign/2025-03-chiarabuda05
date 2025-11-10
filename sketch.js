@@ -61,8 +61,13 @@ function drawTitle() {
   textAlign(RIGHT, CENTER);
   textSize(50);
   fill(50, 100, 150);
-  text("Volcanoes of the World", width - 80, 50);
+  textSize(40);
+  // use the loaded Source Code Pro font and draw the title
+  textFont(fontRegular);
+  text("Volcanoes of the World", width - 100, 60);
+  
 }
+
 
 function drawFooter() {
   textAlign(CENTER, CENTER);
