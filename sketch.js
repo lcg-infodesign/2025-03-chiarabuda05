@@ -50,8 +50,8 @@ let mapH = worldImg.height * scaleFactor;
 let mapX = (width - mapW) / 2;
 
 
-  drawWorldMap(mapX+50, mapY+26, mapW, mapH);
-  drawVolcanoes(mapX-50, mapY+30, mapW+140, mapH);
+  drawWorldMap(mapX, mapY, mapW, mapH);
+  drawVolcanoes(mapX, mapY, mapW, mapH);
  
   
 }
